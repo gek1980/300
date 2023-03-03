@@ -1683,46 +1683,33 @@ chrome.storage.sync.get(['kassirInfo'], function(result) {
                     chrome.runtime.sendMessage(sendData);
                 }  
             });
-            $(document).on('click', '#app_pay_5_popup button', function(){
-                paymentData['cash_2']["sdacha"] = $('#app_pay_5_popup .sdacha').html() * 1;
-                paymentData['cash_2']["sum"] = $('#app_pay_5_popup .pay').val() * 1 - paymentData['cash_2']["sdacha"];
-                paymentData['cash_2']["sum2"] = paymentData['cash_2']["sum"];
-                
-                console.log(paymentData);
-                
-                $('#app_pay_5_popup').hide();
-                $('#appButtonsPopup').hide();
-                
-                if(true){
-                    // Раздельная оплата
-                    goPay = 0;
-                    var sum = razdOpl();
-                    var oldSum = trim($('#vsegoKOplate span').text()) * 1;
-                    
-                    $('.v-payment__payment-info__paid__type').each(function(){
-                        oldSum = oldSum - $(this).find('.v-payment__payment-info__paid__price').html().replace(' ₪', '');
-                    });
-                    
-                    var newSum = oldSum - sum;
-                    if(newSum < 0) newSum = 0;
-                    newSum = round(newSum, 2);
-                    $('#ostalosOplatit span').html(newSum);
-                    if(newSum == 0) goPay = 1;
-                } else goPay = 1;
-                
-                if(goPay){
-                    if(paymentData['cc'] != undefined && paymentData['cc']['sum'] != undefined && paymentData['cc']['payment'] != paymentData['cc']['sum']) paymentData['cc'] = undefined;
-                    $('#app_pay_load').show();
-                    $('#app_pay_load_error').hide();
-                    $('#appButtonsPopup').show();
-                                
-                    var sendData = new Object;
-                    sendData['action'] = 'sendData';
-                    sendData['data'] = paymentData;
-                    if($(this).hasClass('notDoc')) sendData['notDoc'] = 1;
-                    chrome.runtime.sendMessage(sendData);
-                }  
+            // Обработчик событий для кнопки "Оплатить через Сбербанк Онлайн"
+            $('#app_pay_5').on('click', function(){
+               $('#app_pay_5_popup').show();
+               getData('cash_2');
+               $('#app_pay_5_popup .summ').html(paymentData['cash_2']['sum']);
+               $('#app_pay_5_popup .pay').val(paymentData['cash_2']['sum']);
+               $('#app_pay_5_popup .sdacha').html(0);
+
+               // Скрываем другие модальные окна
+               $('#app_pay_1_popup').hide();
+               $('#app_pay_2_popup').hide();
+               $('#app_pay_3_popup').hide();
+               $('#app_pay_4_popup').hide();
+               $('#app_pay_load').hide();
+               $('#app_pay_load_error').hide();
+               $('#app_pay_iframe').hide();
+               $('#app_chek_iframe').hide();
+               $('#appButtonsPopup').show();
+
+               // Отключаем кнопку "Без документов", если есть другие способы оплаты
+                if(paymentData['cc'] != undefined || paymentData['cheques'] != undefined || paymentData['banktransfer'] != undefined){
+                   $('#app_pay_5_popup .notDoc').attr('disabled', 'disabled');
+                } else {
+                   $('#app_pay_5_popup .notDoc').removeAttr('disabled');
+                }
             });
+
             $(document).on('click', '#app_pay_2_popup button', function(){
                 paymentData['cc']["sum"] = $('#app_pay_2_popup .pay').val() * 1;
                 
@@ -2112,4 +2099,7 @@ function round(value, precision, mode) {
                 
                   return (isHalf ? value : Math.round(value)) / m
 } 
-
+$('#app_pay_5').on('click', function(){
+    $('#app_pay_5_popup').show();
+    // Другой код, который вам может понадобиться для обработки нажатия кнопки
+});
