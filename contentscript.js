@@ -1285,30 +1285,33 @@ chrome.storage.sync.get(['kassirInfo'], function(result) {
                 $('#app_chek_iframe').hide();
                 $('#appButtonsPopup').show();
             });
-            $(document).on('click', '#app_pay_5', function(){
-                getData('cash_2');
-                
-                $('#app_pay_5_popup .summ').html(paymentData['cash_2']['sum']);
-                $('#app_pay_5_popup .pay').val(paymentData['cash_2']['sum']);
-                $('#app_pay_5_popup .sdacha').html(0);
-                
-                $('#app_pay_1_popup').show();
-                $('#app_pay_2_popup').hide();
-                $('#app_pay_3_popup').hide();
-                $('#app_pay_4_popup').hide();
-                $('#app_pay_5_popup').hide();
-                $('#app_pay_load').hide();
-                $('#app_pay_load_error').hide();
-                $('#app_pay_iframe').hide();
-                $('#app_chek_iframe').hide();
-                $('#appButtonsPopup').show();
-                
-                if(paymentData['cc'] != undefined || paymentData['cheques'] != undefined || paymentData['banktransfer'] != undefined){
+            function appButtonsPopup() {
+                $('.menu-item5').on('click', function() {
+                  getData('cash');
+              
+                  $('#app_pay_5_popup .summ').html(paymentData['cash']['sum']);
+                  $('#app_pay_5_popup .pay').val(paymentData['cash']['sum']);
+                  $('#app_pay_5_popup .sdacha').html(0);
+              
+                  $('#app_pay_1_popup').hide();
+                  $('#app_pay_2_popup').hide();
+                  $('#app_pay_3_popup').hide();
+                  $('#app_pay_4_popup').hide();
+                  $('#app_pay_5_popup').show();
+                  $('#app_pay_load').hide();
+                  $('#app_pay_load_error').hide();
+                  $('#app_pay_iframe').hide();
+                  $('#app_chek_iframe').hide();
+                  $('#appButtonsPopup').show();
+              
+                  if (paymentData['cc'] !== undefined || paymentData['cheques'] !== undefined || paymentData['banktransfer'] !== undefined) {
                     $('#app_pay_5_popup .notDoc').attr('disabled', 'disabled');
-                } else {
+                  } else {
                     $('#app_pay_5_popup .notDoc').removeAttr('disabled');
-                }
-            });
+                  }
+                });
+              }
+              
             
             var openCheck = function(request){
                     var block = '\
@@ -1686,9 +1689,9 @@ chrome.storage.sync.get(['kassirInfo'], function(result) {
             // Обработчик событий для кнопки "Оплатить через Сбербанк Онлайн"
             $('#app_pay_5').on('click', function(){
                $('#app_pay_5_popup').show();
-               getData('cash_2');
-               $('#app_pay_5_popup .summ').html(paymentData['cash_2']['sum']);
-               $('#app_pay_5_popup .pay').val(paymentData['cash_2']['sum']);
+               getData('cash');
+               $('#app_pay_5_popup .summ').html(paymentData['cash']['sum']);
+               $('#app_pay_5_popup .pay').val(paymentData['cash']['sum']);
                $('#app_pay_5_popup .sdacha').html(0);
 
                // Скрываем другие модальные окна
