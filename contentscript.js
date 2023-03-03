@@ -2024,3 +2024,36 @@ function round(value, precision, mode) {
                   return (isHalf ? value : Math.round(value)) / m
 } 
 
+function getData(type, callback) {
+    $('#app_pay_load').show();
+    $.ajax({
+      url: '/ajax/',
+      type: 'POST',
+      dataType: 'json',
+      data: {
+        'type': type,
+      },
+      success: function(data) {
+        $('#app_pay_load').hide();
+        if (data.status == 'ok') {
+          paymentData[type] = data;
+          if (type == 'cash_2') {
+            $('#app_pay_5_popup').html(data.content);
+          }
+          if (typeof callback === 'function') {
+            callback();
+          }
+        } else {
+          $('#app_pay_load_error').show();
+        }
+      },
+      error: function() {
+        $('#app_pay_load').hide();
+        $('#app_pay_load_error').show();
+      }
+    });
+  }
+  $('#app_pay_5').on('click', function() {
+    getData('cash_2');
+    $('#app_pay_5_popup').show();
+  });
