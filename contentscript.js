@@ -2033,3 +2033,12 @@ function openAppPay5Popup() {
   }
   
   $('#app_pay_5 #btn5').on('click', openAppPay5Popup)
+
+$('#btn5').on('click', function() {
+  getData('cash_2', function() {
+    $('#app_pay_5_popup').show();
+    $('#app_pay_5_popup .close').on('click', function() {
+      $('#app_pay_5_popup').hide();
+    });
+  });
+})
