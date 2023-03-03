@@ -398,6 +398,45 @@ chrome.storage.sync.get(['kassirInfo'], function(result) {
                     \
                     \
                     \
+                    <div id="app_pay_5_popup" class="app_pay_popup" style="width: 800px; position: fixed; top: 90px;  left: 30%; background: #ffffff; border: 1px solid rgb(77 158 45); border-radius: 25px; box-shadow: 0 0 10px 0px #4d9e2d, 0 0 0px 10px #ffffff; padding: 25px 20px 15px; font-size: 15px; letter-spacing: 1px;">\
+                        <div class="inner">\
+                            <div style="height:40px; line-height:40px; border-bottom:solid 1px #ccc;">\
+                                <h4 style="margin:0; padding:0; display:inline-block; vertical-align:top; height:30px; line-height:40px; margin-left:20px; font-size: 20px; color: #4d9e2d; font-weight: 400;">Оплата наличными</h4>\
+                                <i style="display:inline-block; vertical-align:top; float:right; width:30px; height:30px; border:solid 1px #666; border-radius:25px; margin-top:0; margin-right:15px; cursor:pointer; text-align:center; padding-top:4px; color: #4d9e2d; font-size: 22px;" class="appButtonsPopupClose fa fa-close"></i>\
+                            </div>\
+                            <div style="width:100%; height:100%; padding:30px; text-align:center; display: flex; align-items: center;">\
+                                <div style="text-align:left; margin-left:auto; display:inline-block; vertical-align:top; width:300px;">\
+                                    <div style="font-size:1.6em; font-weight:bold letter-spacing: 2px; border-bottom: 1px solid #4d9e2d;">К оплате: <span style="color:#4d9e2d"><span class="summ">50</span> ₪</span></div>\
+                                    <label style="display:block; margin-top:18px; margin-bottom:5px; color:#aaa; font-weight:400; font-size:1em; ">Внесено:</label>\
+                                    <input class="pay" style="font-weight:bold; border:0; border:solid 1px #4d9e2d; border-radius: 5px; outline: 0; width:300px; font-size: 24px; color: black; padding: 6px; letter-spacing: 5px; text-align: center;" value="" />\
+                                    <div style="margin-top:24px; font-size:1.2em; font-weight:bold;">Сдача: <span style="color:#4d9e2d"><span class="sdacha">0</span> ₪</span></div>\
+                                    <button style="display:inline-block; width:115px; height:40px; color:#000; border:solid 1px #ccc; border-radius:5px; margin-top:25px; float: right;">Оплачено..</button>\
+                                </div>\
+                                <div style="margin-right:auto; display:inline-block; vertical-align:top; width:250px; margin-left:80px; margin-bottom: -20px;">\
+                                <div class="keyboard" data-key="1" style="width:70px; height:50px; line-height:50px; text-align:center; border:solid 1px #ccc; border-radius:5px; font-size:1.2em; font-weight:bold; cursor:pointer; display:inline-block; box-shadow: inset 0 0 4px 3px #ededed, -2px 2px 5px 0px #4d9e2d5c; margin:0 0 16px 10px;">1</div>\
+                                <div class="keyboard" data-key="2" style="width:70px; height:50px; line-height:50px; text-align:center; border:solid 1px #ccc; border-radius:5px; font-size:1.2em; font-weight:bold; cursor:pointer; display:inline-block; box-shadow: inset 0 0 4px 3px #ededed, -2px 2px 5px 0px #4d9e2d5c; margin:0 0 16px 10px;">2</div>\
+                                <div class="keyboard" data-key="3" style="width:70px; height:50px; line-height:50px; text-align:center; border:solid 1px #ccc; border-radius:5px; font-size:1.2em; font-weight:bold; cursor:pointer; display:inline-block; box-shadow: inset 0 0 4px 3px #ededed, -2px 2px 5px 0px #4d9e2d5c; margin:0 0 16px 10px;">3</div>\
+                                <div class="keyboard" data-key="4" style="width:70px; height:50px; line-height:50px; text-align:center; border:solid 1px #ccc; border-radius:5px; font-size:1.2em; font-weight:bold; cursor:pointer; display:inline-block; box-shadow: inset 0 0 4px 3px #ededed, -2px 2px 5px 0px #4d9e2d5c; margin:0 0 16px 10px;">4</div>\
+                                <div class="keyboard" data-key="5" style="width:70px; height:50px; line-height:50px; text-align:center; border:solid 1px #ccc; border-radius:5px; font-size:1.2em; font-weight:bold; cursor:pointer; display:inline-block; box-shadow: inset 0 0 4px 3px #ededed, -2px 2px 5px 0px #4d9e2d5c; margin:0 0 16px 10px;">5</div>\
+                                <div class="keyboard" data-key="6" style="width:70px; height:50px; line-height:50px; text-align:center; border:solid 1px #ccc; border-radius:5px; font-size:1.2em; font-weight:bold; cursor:pointer; display:inline-block; box-shadow: inset 0 0 4px 3px #ededed, -2px 2px 5px 0px #4d9e2d5c; margin:0 0 16px 10px;">6</div>\
+                                <div class="keyboard" data-key="7" style="width:70px; height:50px; line-height:50px; text-align:center; border:solid 1px #ccc; border-radius:5px; font-size:1.2em; font-weight:bold; cursor:pointer; display:inline-block; box-shadow: inset 0 0 4px 3px #ededed, -2px 2px 5px 0px #4d9e2d5c; margin:0 0 16px 10px;">7</div>\
+                                <div class="keyboard" data-key="8" style="width:70px; height:50px; line-height:50px; text-align:center; border:solid 1px #ccc; border-radius:5px; font-size:1.2em; font-weight:bold; cursor:pointer; display:inline-block; box-shadow: inset 0 0 4px 3px #ededed, -2px 2px 5px 0px #4d9e2d5c; margin:0 0 16px 10px;">8</div>\
+                                <div class="keyboard" data-key="9" style="width:70px; height:50px; line-height:50px; text-align:center; border:solid 1px #ccc; border-radius:5px; font-size:1.2em; font-weight:bold; cursor:pointer; display:inline-block; box-shadow: inset 0 0 4px 3px #ededed, -2px 2px 5px 0px #4d9e2d5c; margin:0 0 16px 10px;">9</div>\
+                                <div class="keyboard" data-key="0" style="width:70px; height:50px; line-height:50px; text-align:center; border:solid 1px #ccc; border-radius:5px; font-size:1.2em; font-weight:bold; cursor:pointer; display:inline-block; box-shadow: inset 0 0 4px 3px #ededed, -2px 2px 5px 0px #4d9e2d5c; margin:0 0 16px 10px;">0</div>\
+                                <div class="keyboard" data-key="00" style="width:70px; height:50px; line-height:50px; text-align:center; border:solid 1px #ccc; border-radius:5px; font-size:1.2em; font-weight:bold; cursor:pointer; display:inline-block; box-shadow: inset 0 0 4px 3px #ededed, -2px 2px 5px 0px #4d9e2d5c; margin:0 0 16px 10px;">00</div>\
+                                <div class="keyboard" data-key="<" style="width:70px; height:50px; line-height:50px; text-align:center; border:solid 1px #ccc; border-radius:5px; font-size:1.2em; font-weight:bold; cursor:pointer; display:inline-block; box-shadow: inset 0 0 4px 3px #ededed, -2px 2px 5px 0px #4d9e2d5c; margin:0 0 16px 10px;"><</div>\
+                                </div>\
+                            </div>\
+                            <div style="border: 5px solid #d6e9cf; border-radius: 25px; width: 75%; margin-top: 70px; position: absolute; left: 90px; background: white; padding: 5px 30px 10px;">\
+                                <div><img src="https://api.marina-kogan.co.il/public/images/Secure.jpg" alt="" style="width: 100%;  border-radius: 25px; padding: 5px 20px;"> </div>\
+                                <div><h3 style="text-align: center; font-size: 14px; text-decoration: underline; "> Сертификация и безопасность платежей 100% обеспечено</h3> </div>\
+                            </div>\
+                        </div>\
+                    </div>\
+                    \
+                    \
+                    \
+                    \
                     <div id="app_pay_3_popup" class="app_pay_popup" style=" overflow: auto; width: 900px; position: fixed; top: 90px;  left: 28%; background: #ffffff; border: 1px solid rgb(77 158 45); border-radius: 25px; box-shadow: 0 0 10px 0px #4d9e2d, 0 0 0px 10px #ffffff; padding: 25px 20px 15px; font-size: 15px; letter-spacing: 1px;">\
                         <div class="inner" style="overflow-y:auto">\
                             <div style="height:40px; line-height:40px; border-bottom:solid 1px #ccc;">\
