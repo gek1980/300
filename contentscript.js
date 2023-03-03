@@ -211,7 +211,6 @@ chrome.storage.sync.get(['kassirInfo'], function(result) {
                     $('#app_pay_2_popup').hide();
                     $('#app_pay_3_popup').hide();
                     $('#app_pay_4_popup').hide();
-                    $('#app_pay_5_popup').hide();
                     $('#app_pay_load').hide();
                     $('#app_pay_load_error').hide();
                     $('#app_pay_iframe').hide();
@@ -230,7 +229,6 @@ chrome.storage.sync.get(['kassirInfo'], function(result) {
                         $('#app_pay_2_popup').hide();
                         $('#app_pay_3_popup').hide();
                         $('#app_pay_4_popup').hide();
-                        $('#app_pay_5_popup').hide();
                         $('#app_pay_load').hide();
                         $('#app_pay_load_error').hide();
                         $('#app_pay_iframe').hide();
@@ -281,7 +279,6 @@ chrome.storage.sync.get(['kassirInfo'], function(result) {
                     $('#app_pay_2_popup').hide();
                     $('#app_pay_3_popup').hide();
                     $('#app_pay_4_popup').hide();
-                    $('#app_pay_5_popup').hide();
                     $('#app_pay_load').hide();
                     $('#app_pay_load_error').hide();
                     $('#app_pay_iframe').hide();
@@ -502,45 +499,6 @@ chrome.storage.sync.get(['kassirInfo'], function(result) {
                     \
                     \
                     \
-                    <div id="app_pay_5_popup" class="app_pay_popup" style="width: 800px; position: fixed; top: 90px;  left: 30%; background: #ffffff; border: 1px solid rgb(77 158 45); border-radius: 25px; box-shadow: 0 0 10px 0px #4d9e2d, 0 0 0px 10px #ffffff; padding: 25px 20px 15px; font-size: 15px; letter-spacing: 1px;">\
-                    <div class="inner">\
-                        <div style="height:40px; line-height:40px; border-bottom:solid 1px #ccc;">\
-                            <h4 style="margin:0; padding:0; display:inline-block; vertical-align:top; height:30px; line-height:40px; margin-left:20px; font-size: 20px; color: #4d9e2d; font-weight: 400;">Оплата наличными</h4>\
-                            <i style="display:inline-block; vertical-align:top; float:right; width:30px; height:30px; border:solid 1px #666; border-radius:25px; margin-top:0; margin-right:15px; cursor:pointer; text-align:center; padding-top:4px; color: #4d9e2d; font-size: 22px;" class="appButtonsPopupClose fa fa-close"></i>\
-                        </div>\
-                        <div style="width:100%; height:100%; padding:30px; text-align:center; display: flex; align-items: center;">\
-                            <div style="text-align:left; margin-left:auto; display:inline-block; vertical-align:top; width:300px;">\
-                                <div style="font-size:1.6em; font-weight:bold letter-spacing: 2px; border-bottom: 1px solid #4d9e2d;">К оплате: <span style="color:#4d9e2d"><span class="summ">50</span> ₪</span></div>\
-                                <label style="display:block; margin-top:18px; margin-bottom:5px; color:#aaa; font-weight:400; font-size:1em; ">Внесено:</label>\
-                                <input class="pay" style="font-weight:bold; border:0; border:solid 1px #4d9e2d; border-radius: 5px; outline: 0; width:300px; font-size: 24px; color: black; padding: 6px; letter-spacing: 5px; text-align: center;" value="" />\
-                                <div style="margin-top:24px; font-size:1.2em; font-weight:bold;">Сдача: <span style="color:#4d9e2d"><span class="sdacha">0</span> ₪</span></div>\
-                                <button style="display:inline-block; width:115px; height:40px; color:#000; border:solid 1px #ccc; border-radius:5px; margin-top:25px; float: right;">Оплачено..</button>\
-                            </div>\
-                            <div style="margin-right:auto; display:inline-block; vertical-align:top; width:250px; margin-left:80px; margin-bottom: -20px;">\
-                            <div class="keyboard" data-key="1" style="width:70px; height:50px; line-height:50px; text-align:center; border:solid 1px #ccc; border-radius:5px; font-size:1.2em; font-weight:bold; cursor:pointer; display:inline-block; box-shadow: inset 0 0 4px 3px #ededed, -2px 2px 5px 0px #4d9e2d5c; margin:0 0 16px 10px;">1</div>\
-                            <div class="keyboard" data-key="2" style="width:70px; height:50px; line-height:50px; text-align:center; border:solid 1px #ccc; border-radius:5px; font-size:1.2em; font-weight:bold; cursor:pointer; display:inline-block; box-shadow: inset 0 0 4px 3px #ededed, -2px 2px 5px 0px #4d9e2d5c; margin:0 0 16px 10px;">2</div>\
-                            <div class="keyboard" data-key="3" style="width:70px; height:50px; line-height:50px; text-align:center; border:solid 1px #ccc; border-radius:5px; font-size:1.2em; font-weight:bold; cursor:pointer; display:inline-block; box-shadow: inset 0 0 4px 3px #ededed, -2px 2px 5px 0px #4d9e2d5c; margin:0 0 16px 10px;">3</div>\
-                            <div class="keyboard" data-key="4" style="width:70px; height:50px; line-height:50px; text-align:center; border:solid 1px #ccc; border-radius:5px; font-size:1.2em; font-weight:bold; cursor:pointer; display:inline-block; box-shadow: inset 0 0 4px 3px #ededed, -2px 2px 5px 0px #4d9e2d5c; margin:0 0 16px 10px;">4</div>\
-                            <div class="keyboard" data-key="5" style="width:70px; height:50px; line-height:50px; text-align:center; border:solid 1px #ccc; border-radius:5px; font-size:1.2em; font-weight:bold; cursor:pointer; display:inline-block; box-shadow: inset 0 0 4px 3px #ededed, -2px 2px 5px 0px #4d9e2d5c; margin:0 0 16px 10px;">5</div>\
-                            <div class="keyboard" data-key="6" style="width:70px; height:50px; line-height:50px; text-align:center; border:solid 1px #ccc; border-radius:5px; font-size:1.2em; font-weight:bold; cursor:pointer; display:inline-block; box-shadow: inset 0 0 4px 3px #ededed, -2px 2px 5px 0px #4d9e2d5c; margin:0 0 16px 10px;">6</div>\
-                            <div class="keyboard" data-key="7" style="width:70px; height:50px; line-height:50px; text-align:center; border:solid 1px #ccc; border-radius:5px; font-size:1.2em; font-weight:bold; cursor:pointer; display:inline-block; box-shadow: inset 0 0 4px 3px #ededed, -2px 2px 5px 0px #4d9e2d5c; margin:0 0 16px 10px;">7</div>\
-                            <div class="keyboard" data-key="8" style="width:70px; height:50px; line-height:50px; text-align:center; border:solid 1px #ccc; border-radius:5px; font-size:1.2em; font-weight:bold; cursor:pointer; display:inline-block; box-shadow: inset 0 0 4px 3px #ededed, -2px 2px 5px 0px #4d9e2d5c; margin:0 0 16px 10px;">8</div>\
-                            <div class="keyboard" data-key="9" style="width:70px; height:50px; line-height:50px; text-align:center; border:solid 1px #ccc; border-radius:5px; font-size:1.2em; font-weight:bold; cursor:pointer; display:inline-block; box-shadow: inset 0 0 4px 3px #ededed, -2px 2px 5px 0px #4d9e2d5c; margin:0 0 16px 10px;">9</div>\
-                            <div class="keyboard" data-key="0" style="width:70px; height:50px; line-height:50px; text-align:center; border:solid 1px #ccc; border-radius:5px; font-size:1.2em; font-weight:bold; cursor:pointer; display:inline-block; box-shadow: inset 0 0 4px 3px #ededed, -2px 2px 5px 0px #4d9e2d5c; margin:0 0 16px 10px;">0</div>\
-                            <div class="keyboard" data-key="00" style="width:70px; height:50px; line-height:50px; text-align:center; border:solid 1px #ccc; border-radius:5px; font-size:1.2em; font-weight:bold; cursor:pointer; display:inline-block; box-shadow: inset 0 0 4px 3px #ededed, -2px 2px 5px 0px #4d9e2d5c; margin:0 0 16px 10px;">00</div>\
-                            <div class="keyboard" data-key="<" style="width:70px; height:50px; line-height:50px; text-align:center; border:solid 1px #ccc; border-radius:5px; font-size:1.2em; font-weight:bold; cursor:pointer; display:inline-block; box-shadow: inset 0 0 4px 3px #ededed, -2px 2px 5px 0px #4d9e2d5c; margin:0 0 16px 10px;"><</div>\
-                            </div>\
-                        </div>\
-                        <div style="border: 5px solid #d6e9cf; border-radius: 25px; width: 75%; margin-top: 70px; position: absolute; left: 90px; background: white; padding: 5px 30px 10px;">\
-                            <div><img src="https://api.marina-kogan.co.il/public/images/Secure.jpg" alt="" style="width: 100%;  border-radius: 25px; padding: 5px 20px;"> </div>\
-                            <div><h3 style="text-align: center; font-size: 14px; text-decoration: underline; "> Сертификация и безопасность платежей 100% обеспечено</h3> </div>\
-                        </div>\
-                    </div>\
-                </div>\
-                \
-                \
-                \
-                \
                     <div id="app_pay_load_error" style="display:none; width:800px; height:250px; position:fixed; top:0; left:50%; margin:50px 0 0 -400px; background:#fff; border:solid 2px #000; border-radius:5px;">\
                         <div class="inner">\
                             <div style="height:40px; line-height:40px; border-bottom:solid 1px #ccc;">\
@@ -610,7 +568,6 @@ chrome.storage.sync.get(['kassirInfo'], function(result) {
                     $('#app_pay_2_popup').hide();
                     $('#app_pay_3_popup').hide();
                     $('#app_pay_4_popup').hide();
-                    $('#app_pay_5_popup').hide();
                     $('#app_pay_load').hide();
                     $('#app_pay_load_error').hide();
                     $('#app_pay_iframe').hide();
@@ -626,7 +583,6 @@ chrome.storage.sync.get(['kassirInfo'], function(result) {
                     $('#app_pay_2_popup').hide();
                     $('#app_pay_3_popup').hide();
                     $('#app_pay_4_popup').hide();
-                    $('#app_pay_5_popup').hide();
                     $('#app_pay_load').hide();
                     $('#app_pay_load_error').hide();
                     $('#app_pay_iframe').hide();
@@ -644,15 +600,6 @@ chrome.storage.sync.get(['kassirInfo'], function(result) {
                     if($('#app_pay_1_popup .pay').val() * 1 < $('#app_pay_1_popup .summ').html() * 1) $('#app_pay_1_popup .notDoc').attr('disabled', 'disables');
                     else $('#app_pay_1_popup .notDoc').removeAttr('disabled');
                 }
-                var sdacha = function(){
-                    var sdacha = $('#app_pay_5_popup .pay').val()*1 - $('#app_pay_5_popup .summ').html()*1;
-                    if(sdacha < 0) sdacha = 0;
-                    sdacha = round(sdacha, 2);
-                    $('#app_pay_5_popup .sdacha').html(sdacha);
-                    
-                    if($('#app_pay_5_popup .pay').val() * 1 < $('#app_pay_5_popup .summ').html() * 1) $('#app_pay_5_popup .notDoc').attr('disabled', 'disables');
-                    else $('#app_pay_5_popup .notDoc').removeAttr('disabled');
-                }
                 
                 // События нажатия клавиатуры
                 $('.app_pay_popup .keyboard').click(function(){
@@ -662,14 +609,10 @@ chrome.storage.sync.get(['kassirInfo'], function(result) {
                         $(this).parents('.app_pay_popup').find('.pay').val($(this).parents('.app_pay_popup').find('.pay').val() + '' + $(this).data('key'));
                     }
                     if($(this).parents('.app_pay_popup').attr('id') == 'app_pay_1_popup') sdacha();
-                    if($(this).parents('.app_pay_popup').attr('id') == 'app_pay_5_popup') sdacha();
                 });
                 
                 // Событие ввода суммы
                 $('#app_pay_1_popup .pay').keyup(function(){
-                    sdacha();
-                })
-                $('#app_pay_5_popup .pay').keyup(function(){
                     sdacha();
                 })
                 
@@ -809,7 +752,7 @@ chrome.storage.sync.get(['kassirInfo'], function(result) {
                         ';
                 var btn5 = '\
                             <div class="col-sm-8 xs-m-b" style=" border-bottom: 1px solid #c9c9c9; width: 100%; padding: 25px 100px 25px 100px; margin-bottom: 4px;">\
-                               <button id="app_pay_5" class="btn btn-outline-dark" style="display: flex; font-size: 20px;  align-items: center;  justify-content: center; margin: auto; width: 50%; padding: 8px; border: 1px solid #989898; border-right: 15px solid; border-left: 15px solid; border-radius: 25px;">\
+                               <button id="app_pay_1" class="btn btn-outline-dark" style="display: flex; font-size: 20px;  align-items: center;  justify-content: center; margin: auto; width: 50%; padding: 8px; border: 1px solid #989898; border-right: 15px solid; border-left: 15px solid; border-radius: 25px;">\
                                     <i class="fa fa-check-square-o" aria-hidden="true" style="margin: 2px 15px 0 0;"></i>\
                                     <div class="pay-btn-text">\
                                         Оплачено<br>\
@@ -1211,7 +1154,6 @@ chrome.storage.sync.get(['kassirInfo'], function(result) {
                 $('#app_pay_2_popup').hide();
                 $('#app_pay_3_popup').hide();
                 $('#app_pay_4_popup').hide();
-                $('#app_pay_5_popup').hide();
                 $('#app_pay_load').hide();
                 $('#app_pay_load_error').hide();
                 $('#app_pay_iframe').hide();
@@ -1237,7 +1179,6 @@ chrome.storage.sync.get(['kassirInfo'], function(result) {
                 $('#app_pay_2_popup').show();
                 $('#app_pay_3_popup').hide();
                 $('#app_pay_4_popup').hide();
-                $('#app_pay_5_popup').hide();
                 $('#app_pay_load').hide();
                 $('#app_pay_load_error').hide();
                 $('#app_pay_iframe').hide();
@@ -1260,7 +1201,6 @@ chrome.storage.sync.get(['kassirInfo'], function(result) {
                 $('#app_pay_2_popup').hide();
                 $('#app_pay_3_popup').show();
                 $('#app_pay_4_popup').hide();
-                $('#app_pay_5_popup').hide();
                 $('#app_pay_load').hide();
                 $('#app_pay_load_error').hide();
                 $('#app_pay_iframe').hide();
@@ -1278,40 +1218,12 @@ chrome.storage.sync.get(['kassirInfo'], function(result) {
                 $('#app_pay_2_popup').hide();
                 $('#app_pay_3_popup').hide();
                 $('#app_pay_4_popup').show();
-                $('#app_pay_5_popup').hide();
                 $('#app_pay_load').hide();
                 $('#app_pay_load_error').hide();
                 $('#app_pay_iframe').hide();
                 $('#app_chek_iframe').hide();
                 $('#appButtonsPopup').show();
             });
-            function appButtonsPopup() {
-                $('.menu-item5').on('click', function() {
-                  getData('cash');
-              
-                  $('#app_pay_5_popup .summ').html(paymentData['cash']['sum']);
-                  $('#app_pay_5_popup .pay').val(paymentData['cash']['sum']);
-                  $('#app_pay_5_popup .sdacha').html(0);
-              
-                  $('#app_pay_1_popup').hide();
-                  $('#app_pay_2_popup').hide();
-                  $('#app_pay_3_popup').hide();
-                  $('#app_pay_4_popup').hide();
-                  $('#app_pay_5_popup').show();
-                  $('#app_pay_load').hide();
-                  $('#app_pay_load_error').hide();
-                  $('#app_pay_iframe').hide();
-                  $('#app_chek_iframe').hide();
-                  $('#appButtonsPopup').show();
-              
-                  if (paymentData['cc'] !== undefined || paymentData['cheques'] !== undefined || paymentData['banktransfer'] !== undefined) {
-                    $('#app_pay_5_popup .notDoc').attr('disabled', 'disabled');
-                  } else {
-                    $('#app_pay_5_popup .notDoc').removeAttr('disabled');
-                  }
-                });
-              }
-              
             
             var openCheck = function(request){
                     var block = '\
@@ -1474,7 +1386,6 @@ chrome.storage.sync.get(['kassirInfo'], function(result) {
                     $('#app_pay_2_popup').hide();
                     $('#app_pay_3_popup').hide();
                     $('#app_pay_4_popup').hide();
-                    $('#app_pay_5_popup').hide();
                     $('#app_pay_load').hide();
                     $('#app_pay_load_error').hide();
                     $('#app_pay_iframe').hide();
@@ -1517,7 +1428,6 @@ chrome.storage.sync.get(['kassirInfo'], function(result) {
                         $('#app_pay_2_popup').hide();
                         $('#app_pay_3_popup').hide();
                         $('#app_pay_4_popup').hide();
-                        $('#app_pay_5_popup').hide();
                         $('#app_pay_load').hide();
                         $('#app_pay_load_error').hide();
                         $('#app_pay_iframe').hide();
@@ -1620,12 +1530,10 @@ chrome.storage.sync.get(['kassirInfo'], function(result) {
                     
                     var sum = 0;
                     if(paymentData['cash'] != undefined && paymentData['cash']['sum2'] != undefined){
+                        //sum = paymentData['cash'].sum * 1 + paymentData['cash'].sum2 * 1;
                         sum = paymentData['cash'].sum2 * 1;
+                        //paymentData['cash'].sum2 = undefined;
                         $('#razdOpl').append('<div style="color:#1a7bb9; font-size:1.1em; font-weight: bold; padding: 10px; border-right: 1px solid #d1d1d1; margin-right: 5px;">Наличные: <span class="opl_cash">' + paymentData['cash'].sum + '</span> ₪</div>');
-                    }
-                    if(paymentData['cash_2'] != undefined && paymentData['cash_2']['sum2'] != undefined){
-                        sum = paymentData['cash_2'].sum2 * 1;
-                        $('#razdOpl').append('<div style="color:#1a7bb9; font-size:1.1em; font-weight: bold; padding: 10px; border-right: 1px solid #d1d1d1; margin-right: 5px;">Наличные: <span class="opl_cash_2">' + paymentData['cash_2'].sum + '</span> ₪</div>');
                     }
                     if(paymentData['cheques'] != undefined){
                         for(var i = 0; i < paymentData['cheques'].length; i++){
@@ -1686,33 +1594,6 @@ chrome.storage.sync.get(['kassirInfo'], function(result) {
                     chrome.runtime.sendMessage(sendData);
                 }  
             });
-            // Обработчик событий для кнопки "Оплатить через Сбербанк Онлайн"
-            $('#app_pay_5').on('click', function(){
-               $('#app_pay_5_popup').show();
-               getData('cash');
-               $('#app_pay_5_popup .summ').html(paymentData['cash']['sum']);
-               $('#app_pay_5_popup .pay').val(paymentData['cash']['sum']);
-               $('#app_pay_5_popup .sdacha').html(0);
-
-               // Скрываем другие модальные окна
-               $('#app_pay_1_popup').hide();
-               $('#app_pay_2_popup').hide();
-               $('#app_pay_3_popup').hide();
-               $('#app_pay_4_popup').hide();
-               $('#app_pay_load').hide();
-               $('#app_pay_load_error').hide();
-               $('#app_pay_iframe').hide();
-               $('#app_chek_iframe').hide();
-               $('#appButtonsPopup').show();
-
-               // Отключаем кнопку "Без документов", если есть другие способы оплаты
-                if(paymentData['cc'] != undefined || paymentData['cheques'] != undefined || paymentData['banktransfer'] != undefined){
-                   $('#app_pay_5_popup .notDoc').attr('disabled', 'disabled');
-                } else {
-                   $('#app_pay_5_popup .notDoc').removeAttr('disabled');
-                }
-            });
-
             $(document).on('click', '#app_pay_2_popup button', function(){
                 paymentData['cc']["sum"] = $('#app_pay_2_popup .pay').val() * 1;
                 
@@ -2102,7 +1983,4 @@ function round(value, precision, mode) {
                 
                   return (isHalf ? value : Math.round(value)) / m
 } 
-$('#app_pay_5').on('click', function(){
-    $('#app_pay_5_popup').show();
-    // Другой код, который вам может понадобиться для обработки нажатия кнопки
-});
+
