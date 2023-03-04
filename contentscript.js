@@ -66,6 +66,7 @@ setInterval(function(){
 
 }, 10);
 
+
 $(document).ready(function() {
 setInterval(function(){
     if($('#app_pay_load:visible').length) checkIcountError = checkIcountError + 1;
@@ -211,6 +212,7 @@ chrome.storage.sync.get(['kassirInfo'], function(result) {
                     $('#app_pay_2_popup').hide();
                     $('#app_pay_3_popup').hide();
                     $('#app_pay_4_popup').hide();
+                    $('#app_pay_5_popup').hide();
                     $('#app_pay_load').hide();
                     $('#app_pay_load_error').hide();
                     $('#app_pay_iframe').hide();
@@ -229,6 +231,7 @@ chrome.storage.sync.get(['kassirInfo'], function(result) {
                         $('#app_pay_2_popup').hide();
                         $('#app_pay_3_popup').hide();
                         $('#app_pay_4_popup').hide();
+                        $('#app_pay_5_popup').hide();
                         $('#app_pay_load').hide();
                         $('#app_pay_load_error').hide();
                         $('#app_pay_iframe').hide();
@@ -279,6 +282,7 @@ chrome.storage.sync.get(['kassirInfo'], function(result) {
                     $('#app_pay_2_popup').hide();
                     $('#app_pay_3_popup').hide();
                     $('#app_pay_4_popup').hide();
+                    $('#app_pay_5_popup').hide();
                     $('#app_pay_load').hide();
                     $('#app_pay_load_error').hide();
                     $('#app_pay_iframe').hide();
@@ -393,11 +397,11 @@ chrome.storage.sync.get(['kassirInfo'], function(result) {
                             <div><h3 style="text-align: center; font-size: 14px; text-decoration: underline; "> Сертификация и безопасность платежей 100% обеспечено</h3> </div>\
                         </div>\
                     </div>\
-                </div>\
-                \
-                \
-                \
-                \
+                    </div>\
+                    \
+                    \
+                    \
+                    \
                     <div id="app_pay_2_popup" class="app_pay_popup" style="width: 800px; position: fixed; top: 90px;  left: 30%; background: #ffffff; border: 1px solid rgb(77 158 45); border-radius: 25px; box-shadow: 0 0 10px 0px #4d9e2d, 0 0 0px 10px #ffffff; padding: 25px 20px 15px; font-size: 15px; letter-spacing: 1px;">\
                         <div class="inner">\
                             <div style="height:40px; line-height:40px; border-bottom:solid 1px #ccc;">\
@@ -608,6 +612,7 @@ chrome.storage.sync.get(['kassirInfo'], function(result) {
                     $('#app_pay_2_popup').hide();
                     $('#app_pay_3_popup').hide();
                     $('#app_pay_4_popup').hide();
+                    $('#app_pay_5_popup').hide();
                     $('#app_pay_load').hide();
                     $('#app_pay_load_error').hide();
                     $('#app_pay_iframe').hide();
@@ -623,6 +628,7 @@ chrome.storage.sync.get(['kassirInfo'], function(result) {
                     $('#app_pay_2_popup').hide();
                     $('#app_pay_3_popup').hide();
                     $('#app_pay_4_popup').hide();
+                    $('#app_pay_5_popup').hide();
                     $('#app_pay_load').hide();
                     $('#app_pay_load_error').hide();
                     $('#app_pay_iframe').hide();
@@ -836,7 +842,7 @@ chrome.storage.sync.get(['kassirInfo'], function(result) {
                     if(in_array('card', kassirInfo.btns)) $(element).append(btn2);
                     if(in_array('cheque', kassirInfo.btns)) $(element).append(btn3);
                     if(in_array('bank', kassirInfo.btns)) $(element).append(btn4);
-                    if(in_array('cash', kassirInfo.btns)) $(element).append(btn5); 
+                    if(in_array('cash2', kassirInfo.btns)) $(element).append(btn5); 
                     
                 }
 
@@ -1139,6 +1145,15 @@ chrome.storage.sync.get(['kassirInfo'], function(result) {
                 } else {
                     data[type]["sum"] = $('#ostalosOplatit span').text() * 1;
                 }
+
+                var sum = data[type];
+                data[type] = new Object;
+                //data[type]["sum"] = sum;
+                if(type == 'cash2'){
+                    data[type]["sum"] = $('#ostalosOplatit span').text() * 1 + $('.opl_cash').text() * 1;
+                } else {
+                    data[type]["sum"] = $('#ostalosOplatit span').text() * 1;
+                }
                 
                 
                 //data['client_name'] = trim($('#rec_clientname_filter').val());
@@ -1194,6 +1209,31 @@ chrome.storage.sync.get(['kassirInfo'], function(result) {
                 $('#app_pay_2_popup').hide();
                 $('#app_pay_3_popup').hide();
                 $('#app_pay_4_popup').hide();
+                $('#app_pay_5_popup').hide();
+                $('#app_pay_load').hide();
+                $('#app_pay_load_error').hide();
+                $('#app_pay_iframe').hide();
+                $('#app_chek_iframe').hide();
+                $('#appButtonsPopup').show();
+                
+                if(paymentData['cc'] != undefined || paymentData['cheques'] != undefined || paymentData['banktransfer'] != undefined){
+                    $('#app_pay_1_popup .notDoc').attr('disabled', 'disabled');
+                } else {
+                    $('#app_pay_1_popup .notDoc').removeAttr('disabled');
+                }
+            });
+            $(document).on('click', '#app_pay_5', function(){
+                getData('cash2');
+                
+                $('#app_pay_5_popup .summ').html(paymentData['cash2']['sum']);
+                $('#app_pay_5_popup .pay').val(paymentData['cash2']['sum']);
+                $('#app_pay_5_popup .sdacha').html(0);
+                
+                $('#app_pay_5_popup').show();
+                $('#app_pay_2_popup').hide();
+                $('#app_pay_3_popup').hide();
+                $('#app_pay_4_popup').hide();
+                $('#app_pay_5_popup').hide();
                 $('#app_pay_load').hide();
                 $('#app_pay_load_error').hide();
                 $('#app_pay_iframe').hide();
@@ -1219,6 +1259,7 @@ chrome.storage.sync.get(['kassirInfo'], function(result) {
                 $('#app_pay_2_popup').show();
                 $('#app_pay_3_popup').hide();
                 $('#app_pay_4_popup').hide();
+                $('#app_pay_5_popup').hide();
                 $('#app_pay_load').hide();
                 $('#app_pay_load_error').hide();
                 $('#app_pay_iframe').hide();
@@ -1241,6 +1282,7 @@ chrome.storage.sync.get(['kassirInfo'], function(result) {
                 $('#app_pay_2_popup').hide();
                 $('#app_pay_3_popup').show();
                 $('#app_pay_4_popup').hide();
+                $('#app_pay_5_popup').hide();
                 $('#app_pay_load').hide();
                 $('#app_pay_load_error').hide();
                 $('#app_pay_iframe').hide();
@@ -1258,6 +1300,7 @@ chrome.storage.sync.get(['kassirInfo'], function(result) {
                 $('#app_pay_2_popup').hide();
                 $('#app_pay_3_popup').hide();
                 $('#app_pay_4_popup').show();
+                $('#app_pay_5_popup').hide();
                 $('#app_pay_load').hide();
                 $('#app_pay_load_error').hide();
                 $('#app_pay_iframe').hide();
@@ -1426,6 +1469,7 @@ chrome.storage.sync.get(['kassirInfo'], function(result) {
                     $('#app_pay_2_popup').hide();
                     $('#app_pay_3_popup').hide();
                     $('#app_pay_4_popup').hide();
+                    $('#app_pay_5_popup').hide();
                     $('#app_pay_load').hide();
                     $('#app_pay_load_error').hide();
                     $('#app_pay_iframe').hide();
@@ -1468,6 +1512,7 @@ chrome.storage.sync.get(['kassirInfo'], function(result) {
                         $('#app_pay_2_popup').hide();
                         $('#app_pay_3_popup').hide();
                         $('#app_pay_4_popup').hide();
+                        $('#app_pay_5_popup').hide();
                         $('#app_pay_load').hide();
                         $('#app_pay_load_error').hide();
                         $('#app_pay_iframe').hide();
@@ -1575,6 +1620,12 @@ chrome.storage.sync.get(['kassirInfo'], function(result) {
                         //paymentData['cash'].sum2 = undefined;
                         $('#razdOpl').append('<div style="color:#1a7bb9; font-size:1.1em; font-weight: bold; padding: 10px; border-right: 1px solid #d1d1d1; margin-right: 5px;">Наличные: <span class="opl_cash">' + paymentData['cash'].sum + '</span> ₪</div>');
                     }
+                    if(paymentData['cash2'] != undefined && paymentData['cash2']['sum2'] != undefined){
+                        //sum = paymentData['cash2'].sum * 1 + paymentData['cash2'].sum2 * 1;
+                        sum = paymentData['cash2'].sum2 * 1;
+                        //paymentData['cash2'].sum2 = undefined;
+                        $('#razdOpl').append('<div style="color:#1a7bb9; font-size:1.1em; font-weight: bold; padding: 10px; border-right: 1px solid #d1d1d1; margin-right: 5px;">Наличные: <span class="opl_cash">' + paymentData['cash2'].sum + '</span> ₪</div>');
+                    }
                     if(paymentData['cheques'] != undefined){
                         for(var i = 0; i < paymentData['cheques'].length; i++){
                             sum += paymentData['cheques'][i].sum * 1;
@@ -1602,6 +1653,46 @@ chrome.storage.sync.get(['kassirInfo'], function(result) {
                 console.log(paymentData);
                 
                 $('#app_pay_1_popup').hide();
+                $('#appButtonsPopup').hide();
+                
+                if(true){
+                    // Раздельная оплата
+                    goPay = 0;
+                    var sum = razdOpl();
+                    var oldSum = trim($('#vsegoKOplate span').text()) * 1;
+                    
+                    $('.v-payment__payment-info__paid__type').each(function(){
+                        oldSum = oldSum - $(this).find('.v-payment__payment-info__paid__price').html().replace(' ₪', '');
+                    });
+                    
+                    var newSum = oldSum - sum;
+                    if(newSum < 0) newSum = 0;
+                    newSum = round(newSum, 2);
+                    $('#ostalosOplatit span').html(newSum);
+                    if(newSum == 0) goPay = 1;
+                } else goPay = 1;
+                
+                if(goPay){
+                    if(paymentData['cc'] != undefined && paymentData['cc']['sum'] != undefined && paymentData['cc']['payment'] != paymentData['cc']['sum']) paymentData['cc'] = undefined;
+                    $('#app_pay_load').show();
+                    $('#app_pay_load_error').hide();
+                    $('#appButtonsPopup').show();
+                                
+                    var sendData = new Object;
+                    sendData['action'] = 'sendData';
+                    sendData['data'] = paymentData;
+                    if($(this).hasClass('notDoc')) sendData['notDoc'] = 1;
+                    chrome.runtime.sendMessage(sendData);
+                }  
+            });
+            $(document).on('click', '#app_pay_5_popup button', function(){
+                paymentData['cash2']["sdacha"] = $('#app_pay_1_popup .sdacha').html() * 1;
+                paymentData['cash2']["sum"] = $('#app_pay_1_popup .pay').val() * 1 - paymentData['cash2']["sdacha"];
+                paymentData['cash2']["sum2"] = paymentData['cash2']["sum"];
+                
+                console.log(paymentData);
+                
+                $('#app_pay_5_popup').hide();
                 $('#appButtonsPopup').hide();
                 
                 if(true){
@@ -2024,36 +2115,4 @@ function round(value, precision, mode) {
                   return (isHalf ? value : Math.round(value)) / m
 } 
 
-function getData(type, callback) {
-    $('#app_pay_load').show();
-    $.ajax({
-      url: '/ajax/',
-      type: 'POST',
-      dataType: 'json',
-      data: {
-        'type': type,
-      },
-      success: function(data) {
-        $('#app_pay_load').hide();
-        if (data.status == 'ok') {
-          paymentData[type] = data;
-          if (type == 'cash_2') {
-            $('#app_pay_5_popup').html(data.content);
-          }
-          if (typeof callback === 'function') {
-            callback();
-          }
-        } else {
-          $('#app_pay_load_error').show();
-        }
-      },
-      error: function() {
-        $('#app_pay_load').hide();
-        $('#app_pay_load_error').show();
-      }
-    });
-  }
-  $('#app_pay_5').on('click', function() {
-    getData('cash_2');
-    $('#app_pay_5_popup').show();
-  });
+
