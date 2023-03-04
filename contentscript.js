@@ -66,7 +66,6 @@ setInterval(function(){
 
 }, 10);
 
-
 $(document).ready(function() {
 setInterval(function(){
     if($('#app_pay_load:visible').length) checkIcountError = checkIcountError + 1;
@@ -365,7 +364,7 @@ chrome.storage.sync.get(['kassirInfo'], function(result) {
                     <div id="app_pay_5_popup" class="app_pay_popup" style="width: 800px; position: fixed; top: 90px;  left: 30%; background: #ffffff; border: 1px solid rgb(77 158 45); border-radius: 25px; box-shadow: 0 0 10px 0px #4d9e2d, 0 0 0px 10px #ffffff; padding: 25px 20px 15px; font-size: 15px; letter-spacing: 1px;">\
                     <div class="inner">\
                         <div style="height:40px; line-height:40px; border-bottom:solid 1px #ccc;">\
-                            <h4 style="margin:0; padding:0; display:inline-block; vertical-align:top; height:30px; line-height:40px; margin-left:20px; font-size: 20px; color: #4d9e2d; font-weight: 400;">Оплата наличными</h4>\
+                            <h4 style="margin:0; padding:0; display:inline-block; vertical-align:top; height:30px; line-height:40px; margin-left:20px; font-size: 20px; color: #4d9e2d; font-weight: 400;">Оплата Мастеру напрямую</h4>\
                             <i style="display:inline-block; vertical-align:top; float:right; width:30px; height:30px; border:solid 1px #666; border-radius:25px; margin-top:0; margin-right:15px; cursor:pointer; text-align:center; padding-top:4px; color: #4d9e2d; font-size: 22px;" class="appButtonsPopupClose fa fa-close"></i>\
                         </div>\
                         <div style="width:100%; height:100%; padding:30px; text-align:center; display: flex; align-items: center;">\
@@ -374,8 +373,7 @@ chrome.storage.sync.get(['kassirInfo'], function(result) {
                                 <label style="display:block; margin-top:18px; margin-bottom:5px; color:#aaa; font-weight:400; font-size:1em; ">Внесено:</label>\
                                 <input class="pay" style="font-weight:bold; border:0; border:solid 1px #4d9e2d; border-radius: 5px; outline: 0; width:300px; font-size: 24px; color: black; padding: 6px; letter-spacing: 5px; text-align: center;" value="" />\
                                 <div style="margin-top:24px; font-size:1.2em; font-weight:bold;">Сдача: <span style="color:#4d9e2d"><span class="sdacha">0</span> ₪</span></div>\
-                                <button class="notDoc" style="display:inline-block; width:150px; height:40px; color:#3f51b5; border:solid 1px #4d9e2d; border-radius:5px; margin-top:25px; background: #4d9e2d; color:#fff">Оплатить</button>\
-                                <button style="display:inline-block; width:115px; height:40px; color:#000; border:solid 1px #ccc; border-radius:5px; margin-top:25px; float: right;">Оплачено..</button>\
+                                <button class="notDoc" style="display:inline-block; width:100%; height:40px; color:#3f51b5; border:solid 1px #4d9e2d; border-radius:5px; margin-top:25px; background: #4d9e2d; color:#fff">Квинтанцию оплаты Мастеру</button>\
                             </div>\
                             <div style="margin-right:auto; display:inline-block; vertical-align:top; width:250px; margin-left:80px; margin-bottom: -20px;">\
                             <div class="keyboard" data-key="1" style="width:70px; height:50px; line-height:50px; text-align:center; border:solid 1px #ccc; border-radius:5px; font-size:1.2em; font-weight:bold; cursor:pointer; display:inline-block; box-shadow: inset 0 0 4px 3px #ededed, -2px 2px 5px 0px #4d9e2d5c; margin:0 0 16px 10px;">1</div>\
@@ -397,11 +395,11 @@ chrome.storage.sync.get(['kassirInfo'], function(result) {
                             <div><h3 style="text-align: center; font-size: 14px; text-decoration: underline; "> Сертификация и безопасность платежей 100% обеспечено</h3> </div>\
                         </div>\
                     </div>\
-                    </div>\
-                    \
-                    \
-                    \
-                    \
+                </div>\
+                \
+                \
+                \
+                \
                     <div id="app_pay_2_popup" class="app_pay_popup" style="width: 800px; position: fixed; top: 90px;  left: 30%; background: #ffffff; border: 1px solid rgb(77 158 45); border-radius: 25px; box-shadow: 0 0 10px 0px #4d9e2d, 0 0 0px 10px #ffffff; padding: 25px 20px 15px; font-size: 15px; letter-spacing: 1px;">\
                         <div class="inner">\
                             <div style="height:40px; line-height:40px; border-bottom:solid 1px #ccc;">\
@@ -842,7 +840,7 @@ chrome.storage.sync.get(['kassirInfo'], function(result) {
                     if(in_array('card', kassirInfo.btns)) $(element).append(btn2);
                     if(in_array('cheque', kassirInfo.btns)) $(element).append(btn3);
                     if(in_array('bank', kassirInfo.btns)) $(element).append(btn4);
-                    if(in_array('cash2', kassirInfo.btns)) $(element).append(btn5); 
+                    if(in_array('cash', kassirInfo.btns)) $(element).append(btn5); 
                     
                 }
 
@@ -1145,15 +1143,6 @@ chrome.storage.sync.get(['kassirInfo'], function(result) {
                 } else {
                     data[type]["sum"] = $('#ostalosOplatit span').text() * 1;
                 }
-
-                var sum = data[type];
-                data[type] = new Object;
-                //data[type]["sum"] = sum;
-                if(type == 'cash2'){
-                    data[type]["sum"] = $('#ostalosOplatit span').text() * 1 + $('.opl_cash').text() * 1;
-                } else {
-                    data[type]["sum"] = $('#ostalosOplatit span').text() * 1;
-                }
                 
                 
                 //data['client_name'] = trim($('#rec_clientname_filter').val());
@@ -1223,10 +1212,10 @@ chrome.storage.sync.get(['kassirInfo'], function(result) {
                 }
             });
             $(document).on('click', '#app_pay_5', function(){
-                getData('cash2');
+                getData('cash');
                 
-                $('#app_pay_5_popup .summ').html(paymentData['cash2']['sum']);
-                $('#app_pay_5_popup .pay').val(paymentData['cash2']['sum']);
+                $('#app_pay_5_popup .summ').html(paymentData['cash']['sum']);
+                $('#app_pay_5_popup .pay').val(paymentData['cash']['sum']);
                 $('#app_pay_5_popup .sdacha').html(0);
                 
                 $('#app_pay_5_popup').show();
@@ -1241,9 +1230,9 @@ chrome.storage.sync.get(['kassirInfo'], function(result) {
                 $('#appButtonsPopup').show();
                 
                 if(paymentData['cc'] != undefined || paymentData['cheques'] != undefined || paymentData['banktransfer'] != undefined){
-                    $('#app_pay_1_popup .notDoc').attr('disabled', 'disabled');
+                    $('#app_pay_5_popup .notDoc').attr('disabled', 'disabled');
                 } else {
-                    $('#app_pay_1_popup .notDoc').removeAttr('disabled');
+                    $('#app_pay_5_popup .notDoc').removeAttr('disabled');
                 }
             });
             $(document).on('click', '#app_pay_2', function(){
@@ -1620,12 +1609,6 @@ chrome.storage.sync.get(['kassirInfo'], function(result) {
                         //paymentData['cash'].sum2 = undefined;
                         $('#razdOpl').append('<div style="color:#1a7bb9; font-size:1.1em; font-weight: bold; padding: 10px; border-right: 1px solid #d1d1d1; margin-right: 5px;">Наличные: <span class="opl_cash">' + paymentData['cash'].sum + '</span> ₪</div>');
                     }
-                    if(paymentData['cash2'] != undefined && paymentData['cash2']['sum2'] != undefined){
-                        //sum = paymentData['cash2'].sum * 1 + paymentData['cash2'].sum2 * 1;
-                        sum = paymentData['cash2'].sum2 * 1;
-                        //paymentData['cash2'].sum2 = undefined;
-                        $('#razdOpl').append('<div style="color:#1a7bb9; font-size:1.1em; font-weight: bold; padding: 10px; border-right: 1px solid #d1d1d1; margin-right: 5px;">Наличные: <span class="opl_cash">' + paymentData['cash2'].sum + '</span> ₪</div>');
-                    }
                     if(paymentData['cheques'] != undefined){
                         for(var i = 0; i < paymentData['cheques'].length; i++){
                             sum += paymentData['cheques'][i].sum * 1;
@@ -1686,9 +1669,9 @@ chrome.storage.sync.get(['kassirInfo'], function(result) {
                 }  
             });
             $(document).on('click', '#app_pay_5_popup button', function(){
-                paymentData['cash2']["sdacha"] = $('#app_pay_1_popup .sdacha').html() * 1;
-                paymentData['cash2']["sum"] = $('#app_pay_1_popup .pay').val() * 1 - paymentData['cash2']["sdacha"];
-                paymentData['cash2']["sum2"] = paymentData['cash2']["sum"];
+                paymentData['cash']["sdacha"] = $('#app_pay_5_popup .sdacha').html() * 1;
+                paymentData['cash']["sum"] = $('#app_pay_5_popup .pay').val() * 1 - paymentData['cash']["sdacha"];
+                paymentData['cash']["sum2"] = paymentData['cash']["sum"];
                 
                 console.log(paymentData);
                 
@@ -1724,7 +1707,7 @@ chrome.storage.sync.get(['kassirInfo'], function(result) {
                     if($(this).hasClass('notDoc')) sendData['notDoc'] = 1;
                     chrome.runtime.sendMessage(sendData);
                 }  
-            });
+            })
             $(document).on('click', '#app_pay_2_popup button', function(){
                 paymentData['cc']["sum"] = $('#app_pay_2_popup .pay').val() * 1;
                 
@@ -2114,5 +2097,6 @@ function round(value, precision, mode) {
                 
                   return (isHalf ? value : Math.round(value)) / m
 } 
+
 
 
